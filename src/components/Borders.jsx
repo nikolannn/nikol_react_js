@@ -1,43 +1,56 @@
 import React, { useState, useEffect } from 'react';
-import { fetchCountData } from '../pages/Home.jsx';
+import axios from 'axios';
 
-const Borders = ({ borders, onBorderClick }) => {
+const Borders = ({ borders, setCountry, setError }) => {
   const [borderCountries, setBorderCountries] = useState([]);
 
-  // This useEffect fetches the border country data when the 'borders' array changes.
+  // Fetch border countries' data
   useEffect(() => {
-    const fetchCountData = async () => {
-      if (borders && borders.length > 0) {
-        // We map over the borders and fetch data for each border country.
-        const borderDataPromises = borders.map(async (borderCode) => {
-          const response = await fetch(`https://nationnode.vercel.app/api/v1/countries/${borderCode}`);
-          const data = await response.json();
-          return data[0]; // Return the first country data object from the response
-        });
-
-        // Wait for all the promises to resolve and set the state with the border countries
-        const borderData = await Promise.all(borderDataPromises);
-        setBorderCountries(borderData);
+    const fetchBorderCountries = async () => {
+      try {
+        const countries = await Promise.all(
+          borders.map(async (border) => {
+            const response = await axios.get(`https://nationnode.vercel.app/${border}`);
+            return response.data[0];
+          })
+        );
+        setBorderCountries(countries);
+      } catch (error) {
+        console.error("Error fetching border countries:", error);
+        setError("Failed to fetch border countries");
       }
     };
 
-    fetchCountData();
-  }, [borders]); // Only run this effect when the 'borders' prop changes.
+    if (borders && borders.length > 0) {
+      fetchBorderCountries();
+    }
+  }, [borders, setError]);
+
+  // Handle border country click to fetch and display data
+  const handleBorderClick = async (countryCode) => {
+    try {
+      setCountry(null); // Optional: Clear the current country before fetching the clicked border country
+      await axios.get(`https://restcountries.com/v3.1/alpha/${countryCode}`).then((response) => {
+        setCountry(response.data[0]); // Set the clicked border country data
+        setError(''); // Clear any previous errors
+      });
+    } catch (error) {
+      console.error("Error fetching clicked border country:", error);
+      setError("Failed to fetch border country data");
+    }
+  };
 
   return (
-    <div className="borders-container">
-      <h5>Borders:</h5>
-      <ul className="list-unstyled">
-        {/* Loop through the fetched border countries and display them */}
-        {borderCountries.map((country) => (
-          <li key={country.cca3} className="border-item">
-            {/* Button that calls the onBorderClick handler when clicked */}
-            <button
-              className="btn btn-link"
-              onClick={() => onBorderClick && onBorderClick(country.cca3)}
-            >
-              {country.name.common} {/* Display the common name of the country */}
-            </button>
+    <div className="borders mt-6 p-4 bg-white shadow-md rounded-lg">
+      <h3 className="text-xl font-semibold text-gray-800">Border Countries:</h3>
+      <ul className="list-disc ml-5 mt-4 space-y-3">
+        {borderCountries.map((border) => (
+          <li
+            key={border.cca3}
+            className="cursor-pointer text-blue-600 hover:text-blue-800 transition-colors duration-200 ease-in-out transform hover:scale-105"
+            onClick={() => handleBorderClick(border.cca3)}
+          >
+            {border.name.common} {/* Display the name of the border country */}
           </li>
         ))}
       </ul>

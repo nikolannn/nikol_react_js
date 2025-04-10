@@ -1,10 +1,16 @@
+// src/components/Header.js
 import React from 'react';
 
 const Header = () => {
   return (
-    <header className="bg-primary text-white p-3">
-      <div className="container">
-        <h1>Visualizing Country Information</h1>
+    <header className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-8 shadow-md">
+      <div className="container mx-auto px-4 text-center">
+        <h1 className="text-5xl font-extrabold leading-tight tracking-tight">
+          Visualizing Country Information
+        </h1>
+        <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">
+          Discover the world’s countries, their cultures, capitals, and more with detailed information.
+        </p>
       </div>
     </header>
   );
