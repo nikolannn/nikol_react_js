@@ -1,5 +1,5 @@
 import React from 'react';
-import './Footer.css';
+// import './Footer.css';
 
 const Footer = () => {
   return (
@@ -7,6 +7,7 @@ const Footer = () => {
       <p>&copy; @2025 Country Search(Midterm nani bai)</p>
     </footer>
   );
+  
 };
 
 export default Footer;

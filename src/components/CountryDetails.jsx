@@ -1,5 +1,5 @@
 import React from 'react';
-import './CountryDetails.css';
+// import './CountryDetails.css';
 
 const CountryDetails = ({ country }) => {
   return (

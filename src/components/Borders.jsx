@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Borders.css';
+// import './Borders.css';
 
 const Borders = ({ borders, setCountry, setError }) => {
   const [borderCountries, setBorderCountries] = useState([]);

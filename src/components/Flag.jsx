@@ -1,9 +1,19 @@
 import React from 'react';
-import './Flag.css';
 
 const Flag = ({ flagUrl }) => (
-    <img src={flagUrl} alt="Flag" className="w-40 h-auto mb-4 rounded" />
-  );
-  
-  export default Flag;
-  
+  <>
+    <style>
+      {`
+        .flag-img {
+          width: 50rem;
+          height: auto;
+          margin-bottom: 1rem;
+          border-radius: 0.25rem;
+        }
+      `}
+    </style>
+    <img src={flagUrl} alt="Flag" className="flag-img" />
+  </>
+);
+
+export default Flag;

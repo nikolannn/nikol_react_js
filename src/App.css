@@ -1,19 +1,24 @@
-/* Global Reset */
+/* Global Base Styles */
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f7fa;
-  color: #333;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #f0f2f5; /* Slightly muted light background */
+  color: #1c1e21;            /* Professional dark gray text */
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
 
 /* Container Styles */
 .country-box {
-  background: #ffffff;
+  background: #7b8c9c;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   border-radius: 16px;
-  padding: 2rem;
-  margin: 2rem auto;
+  padding: 3rem;
+  margin: 7rem auto;
   max-width: 800px;
   transition: box-shadow 0.3s ease;
 }
@@ -33,6 +38,7 @@ body {
   background-color: #ffffff;
   transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
+
 
 .search-input:focus {
   border-color: #4f46e5;
@@ -81,148 +87,25 @@ body {
 /* Responsive Layout */
 @media (max-width: 768px) {
   .country-box {
-    padding: 1.5rem;
-    margin: 1rem;
+    background: #0000FF;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    transition: box-shadow 0.3s ease;
   }
 
   .search-input {
     font-size: 0.95rem;
   }
-}
+  /* src/components/Flag.css */
 
-/* Global Reset */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f7fa;
-  color: #333;
-}
-
-/* Container Styles */
-.country-box {
-  background: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  border-radius: 16px;
-  padding: 2rem;
-  margin: 2rem auto;
-  max-width: 800px;
-  transition: box-shadow 0.3s ease;
-}
-
-.country-box:hover {
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-}
-
-/* Search Input */
-.search-input {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  border: 2px solid #d1d5db;
-  border-radius: 12px;
-  outline: none;
-  background-color: #ffffff;
-  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-
-.search-input:focus {
-  border-color: #4f46e5;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
-}
-
-/* Suggestions Dropdown */
-.suggestions-list {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 0 0 12px 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  max-height: 200px;
-  overflow-y: auto;
-  z-index: 10;
-  margin-top: 4px;
-}
-
-.suggestions-list li {
-  padding: 0.75rem 1rem;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.suggestions-list li:hover {
-  background-color: #f3f4f6;
-}
-
-/* Error Message */
-.error-message {
-  color: #dc2626;
-  background-color: #fee2e2;
-  border: 1px solid #fca5a5;
-  padding: 1rem;
-  border-radius: 8px;
-  margin: 1rem auto;
-  width: 90%;
-  max-width: 600px;
-  text-align: center;
-}
-
-/* Borders Component Styles */
-.borders {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background-color: #ffffff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  border-radius: 12px;
-}
-
-.borders h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #1f2937;
-}
-
-.borders ul {
-  list-style-type: disc;
-  padding-left: 1.5rem;
-  margin-top: 1rem;
-}
-
-.borders li {
-  color: #2563eb;
-  cursor: pointer;
-  transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.borders li:hover {
-  color: #1d4ed8;
-  transform: scale(1.05);
-}
-
-/* Responsive Layout */
-@media (max-width: 768px) {
-  .country-box {
-    padding: 1.5rem;
-    margin: 1rem;
-  }
-
-  .search-input {
-    font-size: 0.95rem;
-  }
-}
-/* Flag Component Styles */
-.country-flag {
-  width: 160px;
+.flag-img {
+  width: 10rem;         /* equivalent to Tailwind's w-40 */
   height: auto;
-  margin-bottom: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease-in-out;
+  margin-bottom: 1rem;  /* equivalent to mb-4 */
+  border-radius: 0.25rem; /* equivalent to rounded */
 }
 
-.country-flag:hover {
-  transform: scale(1.03);
 }
