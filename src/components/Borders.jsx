@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './Borders.css';
 
 const Borders = ({ borders, setCountry, setError }) => {
   const [borderCountries, setBorderCountries] = useState([]);
@@ -10,14 +11,14 @@ const Borders = ({ borders, setCountry, setError }) => {
       try {
         const countries = await Promise.all(
           borders.map(async (border) => {
-            const response = await axios.get(`https://nationnode.vercel.app/${border}`);
+            const response = await axios.get(`https://restcountries.com/v3.1/alpha/${border}`);
             return response.data[0];
           })
         );
         setBorderCountries(countries);
       } catch (error) {
         console.error("Error fetching border countries:", error);
-        setError("Failed to fetch border countries");
+        setError("Failed to fetch the border of the countries");
       }
     };
 

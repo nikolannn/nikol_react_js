@@ -1,4 +1,5 @@
 import React from 'react';
+import './CountryDetails.css';
 
 const CountryDetails = ({ country }) => {
   return (

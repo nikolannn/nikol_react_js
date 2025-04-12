@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import debounce from 'lodash.debounce'; // Import debounce from lodash
+import './App.css';
 
 import CountryDetails from './components/CountryDetails';
 import Flag from './components/Flag';

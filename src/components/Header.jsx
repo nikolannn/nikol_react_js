@@ -1,5 +1,6 @@
 // src/components/Header.js
 import React from 'react';
+import './Header.css';
 
 const Header = () => {
   return (
@@ -9,7 +10,7 @@ const Header = () => {
           Visualizing Country Information
         </h1>
         <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">
-          Discover the world’s countries, their cultures, capitals, and more with detailed information.
+          ASA NA COUNTRY ANG NEXT DESTINATION
         </p>
       </div>
     </header>
